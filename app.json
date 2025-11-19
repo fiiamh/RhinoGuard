@@ -22,9 +22,23 @@
       "predictiveBackGestureEnabled": false
     },
     "web": {
+      "devServer": {
+        "host": "0.0.0.0"
+      },
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
-    },
+      "favicon": "./assets/images/favicon.png",
+      "icons": [
+        {
+          "src": "./assets/images/pwa-icon1.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      ],
+      "apple": {
+        "icon": "./assets/images/apple-touch-icon.png"
+      }
+    }
+  },
     "plugins": [
       "expo-router",
       [
@@ -45,4 +59,3 @@
       "reactCompiler": true
     }
   }
-}
