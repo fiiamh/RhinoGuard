@@ -34,21 +34,29 @@ type Message = {
 
 // Utility function to generate random status messages
 function generateRandomStatus(location: string) {
-  const hours = () => Math.floor(Math.random() * 12) + 1; // 1–12 hours
+  const hours = () => Math.floor(Math.random() * 12) + 1;
 
   const observations = ["no abnormalities", "suspicious behaviour detected"];
   const patrols = ["completed", "not completed"];
-  const situations = ["safe", "not safe"];
 
-  const randomObservation = observations[Math.floor(Math.random() * observations.length)];
-  const randomPatrol = patrols[Math.floor(Math.random() * patrols.length)];
-  const randomSituation = situations[Math.floor(Math.random() * situations.length)];
+  // 🔥 Arvotaan vain observation ja patrol
+  const observation = observations[Math.floor(Math.random() * observations.length)];
+  const patrol = patrols[Math.floor(Math.random() * patrols.length)];
 
-  return `
+  // 🔥 Sidotaan situation aina observationiin
+  const situation = observation === "no abnormalities" ? "safe" : "not safe";
+
+  return {
+    message: `
 Here is the latest situation in the area ${location}:
-Latest observation: ${randomObservation} (${hours()} hours ago)
-Latest patrol: ${randomPatrol} (${hours()} hours ago)
-Situation: ${randomSituation}`;
+Latest observation: ${observation} (${hours()} hours ago)
+Latest patrol: ${patrol} (${hours()} hours ago)
+Situation: ${situation}
+`,
+    observation,
+    patrol,
+    situation,
+  };
 }
 
 export default function ReportPoachingChat() {
