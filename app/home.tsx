@@ -1,6 +1,5 @@
 /// <reference types="expo-router" />
 
-
 import { Link, useRouter } from "expo-router";
 import {
   ImageBackground,
@@ -31,30 +30,35 @@ export default function HomeScreen() {
       <View style={styles.container}>
         <Text style={styles.title}>Welcome Ranger</Text>
 
-        {/* BUTTONS */}
-        <Link href="/report-poaching" asChild>
-          <Pressable style={styles.button}>
-            <Text style={styles.buttonText}>Report Rhino Poaching</Text>
-          </Pressable>
-        </Link>
+        {/* REPORT BUTTONS GROUP */}
+        <View style={styles.reportGroup}>
+          <Link href="/report-poaching" asChild>
+            <Pressable style={styles.button}>
+              <Text style={styles.buttonText}>Report Rhino Poaching</Text>
+            </Pressable>
+          </Link>
 
-        <Link href="/report-injury" asChild>
-          <Pressable style={styles.button}>
-            <Text style={styles.buttonText}>Report Injured Animal</Text>
-          </Pressable>
-        </Link>
+          <Link href="/report-injury" asChild>
+            <Pressable style={styles.button}>
+              <Text style={styles.buttonText}>Report Injured Animal</Text>
+            </Pressable>
+          </Link>
 
-        <Link href="/check-status" asChild>
-          <Pressable style={styles.button}>
-            <Text style={styles.buttonText}>Check Status of Reports</Text>
-          </Pressable>
-        </Link>
+          <Link href="/animal-observation" asChild>
+            <Pressable style={styles.button}>
+              <Text style={styles.buttonText}>Animal Observation</Text>
+            </Pressable>
+          </Link>
+        </View>
 
-        <Link href="/observation" asChild>
-          <Pressable style={styles.button}>
-            <Text style={styles.buttonText}>Animal Observation</Text>
-          </Pressable>
-        </Link>
+        {/* CHECK STATUS BUTTON */}
+        <View style={styles.checkStatusContainer}>
+          <Link href="/check-status" asChild>
+            <Pressable style={styles.checkStatusButton}>
+              <Text style={styles.checkStatusText}>Check Status of Reports</Text>
+            </Pressable>
+          </Link>
+        </View>
       </View>
     </ImageBackground>
   );
@@ -105,8 +109,13 @@ const styles = StyleSheet.create({
     textShadowRadius: 6,
   },
 
+  // REPORT BUTTONS GROUP
+  reportGroup: {
+    marginBottom: 40,
+  },
+
   button: {
-    backgroundColor: "rgba(0,125,90,0.85)",
+    backgroundColor: "rgba(0,125,90,0.85)", // vihreä
     paddingVertical: 18,
     borderRadius: 16,
     alignItems: "center",
@@ -118,6 +127,31 @@ const styles = StyleSheet.create({
   },
 
   buttonText: {
+    color: "white",
+    fontSize: 18,
+    fontWeight: "600",
+    fontFamily: "Georgia",
+  },
+
+  // CHECK STATUS BUTTON
+  checkStatusContainer: {
+    marginTop: 20,
+    alignItems: "center",
+  },
+
+  checkStatusButton: {
+    backgroundColor: "#0b3d1f", // tummempi vihreä
+    paddingVertical: 18,
+    paddingHorizontal: 20,
+    borderRadius: 16,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.3,
+    shadowRadius: 7,
+  },
+
+  checkStatusText: {
     color: "white",
     fontSize: 18,
     fontWeight: "600",
