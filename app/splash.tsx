@@ -20,7 +20,13 @@ export default function SplashScreen() {
       {/* Yläosan kielivalikko + yhteistyöteksti */}
       <View style={styles.topBar}>
         <Pressable style={styles.languageButton}>
-          <Text style={styles.languageText}>EN</Text>
+          <Text style={styles.languageText}>EN</Text> 
+        </Pressable>
+        <Pressable style={styles.languageButton}>
+          <Text style={styles.languageText}>DEU</Text>
+        </Pressable>
+        <Pressable style={styles.languageButton}>
+          <Text style={styles.languageText}>AFRIKAANS</Text>
         </Pressable>
 
         <Text style={styles.partners}>
